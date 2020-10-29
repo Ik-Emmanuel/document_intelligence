@@ -1,0 +1,29 @@
+{%  extends "layout.html"  %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="container">    
+    <div class="col-md-12 text-center">
+        <h2> <b> Welcome to Document Intelligence.</b></h2>
+
+   
+       
+           
+            
+            <h4>Document Intelligence is a tool that helps to speed up document review time, document search, as well as document management. </h4>
+       
+        
+
+             {% if session['username'] %} 
+           <br> <h4> <b>Get started.</b> </h4> 
+             {% else %} <br> <br>
+                 <h4 ><a href="{{url_for('login') }}" style="color: rgb(33, 11, 228);"> <b> Login to Begin</b></a></h4>
+             {% endif %}
+     
+
+    </div>
+</div>
+</div>
+{% endblock %}

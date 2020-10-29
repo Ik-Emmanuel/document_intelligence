@@ -1,0 +1,62 @@
+{%  extends "layout.html" %}
+
+{%  block content  %}
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <form method="POST" action="/search" enctype="multipart/form-data">
+                        <div style="display: none">
+                            <input type="file" id="upload-file" name="file" accept=".pdf, .txt, .docx, .xlsx, .csv, .jpg,.jpeg,.png,.gif">
+                            <input type="submit" id="submit-button" value="Upload">
+                        </div> 
+                      
+                         <div id="wrapper">
+                                        <div id="page-wrapper">
+                                            
+                                                    <div id="identitycard"  class="mainbox col-md-8 col-sm-8 col-sm-offset-2">
+                                                        <div class="panel panel-info" style="background-color: rgba(1, 65, 102, 0.185);">
+                                                             <div class="panel-heading" style="background-image:linear-gradient(rgba(0, 0, 0, 0.699), rgba(0, 0, 0, 0.76)) , url(/static/AI.jpg);" >
+                              
+                                    <h4 style="color: white;"> <b>Select document repository  and enter your search term</b> </h4>
+                                    <select id="language" class="form-control" name="language">
+                                    <option value="en">Select Document Storage</option>
+                                    <option value="zh-Hant">Storage 1</option>
+                                    <option value="zh-Hans">Storage 2</option>
+                                    <option value="fr">Storage 3</option>
+                                    <option value="fr">Storage 4</option>
+                                 </select>
+                                
+                             
+                                </div>
+                          <br>
+                            <div class= "form-group">
+                                <input type ="text" name="search_term" style="background-color: rgb(255, 255, 255);"> <br> <b>Enter your search term</b> 
+                            </div>
+                   
+
+                       <div class="panel-body">
+                        
+                                <div class=" panel-body col-sm-6 col-xs-6  " style="left: 150px;">
+                                       <input  type="submit" value="Submit" class="btn btn-lg btn-block btn-success" style="border-radius: 50px; background-color: rgb(3, 43, 66); background-color:hover: red;">
+                                                                                        
+               
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- <script type="text/javascript">
+            $(function() {
+                $("#upload-button").click(function() {
+                    $("#upload-file").click();
+                });
+        
+                $("#upload-file").change(function() {
+                    $("#submit-button").click();
+                });
+                $("#doctype").val("{{ doctype }}");
+            });
+          
+        </script> -->
+
+{%  endblock  %}

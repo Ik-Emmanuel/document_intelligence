@@ -1,0 +1,70 @@
+{%  extends "layout.html"  %}
+
+
+{% block content %}
+
+<!-- <div class="container"> -->
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <form method ="POST" enctype="multipart/form-data">
+           
+                   <div id="wrapper">
+                                
+                           
+                                        <div class="container" >
+                                            <div id="identitycard"  class="mainbox col-md-8 col-sm-8 col-sm-offset-2">
+                                                <div class="panel panel-info" style="background-color: rgba(1, 65, 102, 0.185); ">
+                                                    <div class="panel-heading" style="background-image:linear-gradient(rgba(0, 0, 0, 0.699), rgba(0, 0, 0, 0.76)) , url(/static/AI.jpg);" >
+                        <h4 style="color: white;"> <b>Select contract type, pick a file and submit to extract</b> </h4>
+                        <select id="doctype" class="form-control col-sm-6 col-xs-6 " name="doctype">
+                          <b> <option value="">Select Document Type</option></b> 
+                            <option value="temp1">Template 1</option>
+                            <option value="temp2">Template 2</option>
+                            <option value="notemp">No Template</option>
+                            
+                           </select>
+
+                                                        </div>
+                                                
+                   
+                                                            <form method="POST" action="/contract" enctype="multipart/form-data">
+                                                                <div class="form-group"> 
+                                                                    <div class="row" >
+                                                                        <div class=" col-md-12 col-sm-12 col-xs-12 col-lg-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-2"> 
+                                                                            <input type="file" name="files[]" multiple="true" autocomplete="off" required> 
+                                                                        </div>
+                                                                  
+                                                                   <div class=" col-sm-6 col-xs-6  " style="left: 150px; ">
+                                 <input  type="submit" value="Submit" class="btn btn-lg btn-block btn-success" style="border-radius: 50px; background-color: rgb(3, 43, 66); background-color:hover: red;">
+                           </div>
+                 </div>                                                 
+                </div>    
+                </div>                                     
+                <br>                                                 
+                                                            </form>
+ 
+   
+<!-- </div> -->
+
+
+
+
+             
+        <script type="text/javascript">
+            $(function() {
+                $("#upload-button").click(function() {
+                    $("#upload-file").click();
+                });
+        
+                $("#upload-file").change(function() {
+                    $("#submit-button").click();
+                });
+                $("#doctype").val("{{ doctype }}");
+
+
+                $("#doctype").val("{{ doctype }}");
+            });
+          
+        </script>
+
+{% endblock %}

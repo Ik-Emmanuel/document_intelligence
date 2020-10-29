@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <script type="text/javascript" src="/static/js/pdfobject.js"></script>
+    <head>
+        <title>Doc Intelligence</title>
+       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/main.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="static/css/materialize.css"  media="screen,projection"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            /* Create two unequal columns that floats next to each other */
+            .column {
+              float: left;
+              padding: 10px;
+              height: 130vh;
+            }
+            
+            .bottom-left{
+                color: aquamarine;
+                bottom: 2vh;
+                left: 20vw;
+                position: fixed;
+                z-index: 100;
+            }
+            .bottom-right{
+                bottom: 2vh;
+                right: 69vw;
+                position: fixed;
+                z-index: 100;
+            }
+            
+            .left {
+              width: 40%;
+              height: 130vh;
+            }
+            
+            .right {
+              width: 60%;
+              height: 130vh;
+                
+            }
+            
+            .pdfobject-container {
+                height: 130vh;
+                width: 60vw;
+                
+                
+            
+                
+                margin: auto;
+            }
+            
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            #menu {
+                height: 40px;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            
+            #menu ul {
+                list-style-type: none;
+                white-space: nowrap;
+                margin-top: 8px;
+            }
+            
+            #menu li {
+                color: lightblue;
+                font-size: 16px;
+                font-family: "Tahoma";
+                margin-right: 40px;
+                display: inline;
+            }
+            
+            #menu li.selected {
+                color: white;
+            }
+/*             
+            #banner {
+                background-image: linear-gradient(rgba(0, 1, 1, 0.521), rgba(0, 1, 1, 0.74)), url("/static/AI.jpg");
+                background-repeat: no-repeat;
+                background-color: #96dfee;
+                background-size: cover;
+                margin-bottom: 32px;
+            } */
+            
+            h1 {
+                color: white;
+                font-size: 80pt;
+                font-family: "Tahoma";
+                text-shadow: 4px 4px 16px black;
+            }
+            
+            h4 {
+                color: white;
+                margin-top: 0px;
+                margin-bottom: 48px;
+                font-family: "Tahoma";
+                text-shadow: 4px 4px 8px black;
+            }
+            div.container2 {
+            max-width:500px;
+            max-height: 70vh;
+             margin: 1px;
+             text-align: center;
+             overflow: auto;
+            
+                }
+            
+            </style>
+
+
+
+
+
+    </head>
+    <body>
+        <div id="banner">
+            <div id="menu">
+                    <div class="container">
+                        <div class="row" style="color:rgb(233, 233, 240);">
+                            <ul>
+                               
+                                  <li>
+                                      <a href="/"> Document Intelligence</a>
+                                  </li>
+                                  <li>
+                                      <a href="/search"> Search</a> 
+                                  </li>
+                                  <li class="selected">
+                                    <a href="/upload"> Upload Documents</a>
+                                </li>
+                              </ul>
+                        </div>
+                    </div>
+                </div>
+            <div class="container text-center">
+                <h1>Doc Intelligence </h1>
+                <!-- <h3>By I.K Emmanuel</h3> -->
+                <h4>Upload A Document And Extract All You Need!</h4>
+            </div>
+        </div>
+
+
+
+
+        
+        <div class="row">
+      <div class="column left" style="background-color:rgb(255, 254, 254);">
+        <div class ="container2">
+		<u><h5 style="color:rgb(16, 16, 17);"><b>  Predicted Results </b> </h5></u>
+
+                
+               
+        <strong> <b>Contract Owner:</b> </strong>  <br>{{resp['fields']["contract owner"]['text']}} --- <b>page</b>  {{ resp['fields']["contract owner"]['page']}} <br> <br>
+        <strong><b> Contract Number:</b></strong> <br>  {{resp['fields']["contract number"]['text']}} --- <b>page</b>  {{ resp['fields']["contract number"]['page']}} <br> <br>
+        <b>Counterparty:</b> <br>  {{resp['fields']["counterparty"]['text']}} --- <b>page</b>  {{ resp['fields']["counterparty"]['page']}} <br> <br>
+        <b>Entitlement:</b>  <br> {{resp['fields']["entitlement"]['text']}} --- <b>page</b>  {{ resp['fields']["entitlement"]['page']}} <br> <br>
+        <b>Status2:</b> <br> {{resp['fields']["status"]['text']}} --- <b>page</b>  {{ resp['fields']["status"]['page']}} <br> <br>
+        <b>Final Price:</b> <br>  {{resp['fields']["final price"]['text']}} --- <b>page</b>  {{ resp['fields']["final price"]['page']}} <br> <br>
+        <b>Termination Clause:</b><br>  {{resp['fields']["termination clause"]['text']}} --- <b>page</b>  {{ resp['fields']["termination clause"]['page']}} <br> <br>
+        <b>Expiry Date:</b> <br> {{resp['fields']["expiry date"]['text']}} --- <b>page</b>  {{ resp['fields']["expiry date"]['page']}} <br> <br>
+       <b>Signatory:</b> <br> {{resp['fields']["signatory"]['text']}} --- <b>page</b>  {{ resp['fields']["signatory"]['page']}} <br> <br>
+        <b>Role:</b> <br> {{resp['fields']["role"]['text']}} --- <b>page</b>  {{ resp['fields']["role"]['page']}} <br> <br>
+        <b>Date:</b><br>  {{resp['fields']["date"]['text']}} --- <b>page</b>  {{ resp['fields']["date"]['page']}} <br> <br>
+        <b>Representative:</b> <br> {{resp['fields']["representative"]['text']}} --- <b>page</b>  {{ resp['fields']["representative"]['page']}} <br> <br>
+        <b>Date recieved:</b> <br> {{resp['fields']["date recieved"]['text']}} --- <b>page</b>  {{ resp['fields']["date recieved"]['page']}} <br> <br>
+
+
+
+               
+            
+                   
+                </div> <br>
+                <div class="col-sm-7 col-md-7 col-lg-7  text-center" style="left: 60px;">
+
+                <input type="submit" value="Upload to Database" class="btn btn-lg btn-block btn-success" style="border-radius: 50px;background-color:hover: #35832f;">
+            </div>
+            </div>
+
+                <div class="column right" style="background-color:#bbb;">
+		
+                    <div class="bottom-left">
+                        <button class="btn-floating btn-large waves-effect waves-light red" onclick="goLeft()"><i class="material-icons">chevron_left</i></button>		
+                        </div>
+                        <div class="bottom-right">
+                        <a class="btn-floating btn-large waves-effect waves-light red" onclick="goRight()"><i class="material-icons">chevron_right</i></a>		
+                        </div>
+                        <div id="pdfwindow"></div>
+                        <div id="contents" class="hide">{{contents}}</div>
+                      </div>
+                    </div>
+       
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="static/js/materialize.js"></script>
+<script type="text/javascript" src="/static/js/custom.js"></script>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+    <script type="text/javascript" src="/static/js/pdfobject.js"></script>
+    <head>
+        <title>Doc Intelligence</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/main.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="static/css/materialize.css"  media="screen,projection"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            /* Create two unequal columns that floats next to each other */
+            .column {
+              float: left;
+              padding: 10px;
+              height: 130vh;
+            }
+            
+            .bottom-left{
+                color: aquamarine;
+                bottom: 2vh;
+                left: 20vw;
+                position: fixed;
+                z-index: 100;
+            }
+            .bottom-right{
+                bottom: 2vh;
+                right: 69vw;
+                position: fixed;
+                z-index: 100;
+            }
+            
+            .left {
+              width: 40%;
+              height: 130vh;
+            }
+            
+            .right {
+              width: 60%;
+              height: 130vh;
+                
+            }
+            
+            .pdfobject-container {
+                height: 130vh;
+                width: 60vw;
+                
+                
+            
+                
+                margin: auto;
+            }
+            
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            #menu {
+                height: 40px;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            
+            #menu ul {
+                list-style-type: none;
+                white-space: nowrap;
+                margin-top: 8px;
+            }
+            
+            #menu li {
+                color: lightblue;
+                font-size: 16px;
+                font-family: "Tahoma";
+                margin-right: 40px;
+                display: inline;
+            }
+            
+            #menu li.selected {
+                color: white;
+            }
+
+
+
+                    input[type=text], input[type=password] {
+                width: 50%;
+                padding: 7px;
+                /* margin: 5px 0 22px 0; */
+                display: inline-block;
+                border: none;
+                background: #f1f1f1;
+            }
+
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+            
+                h1 {
+                    color: white;
+                    font-size: 62pt;
+                    font-family: "Tahoma";
+                    text-shadow: 4px 4px 16px black;
+                }
+
+                h3 {
+                    color: white;
+                    margin-top: 0px;
+                    margin-bottom: 48px;
+                    font-family: "Tahoma";
+                    text-shadow: 4px 4px 8px black;
+                }
+
+                .user{
+
+                    float: right; 
+                    position:relative;
+                     font-size: 15px;
+                      right: 6em; 
+                      top: 10%;
+                      color: rgb(2, 3, 48);
+                      
+                }
+
+                div.container2 {
+            max-width:500px;
+            max-height: 70vh;
+             margin: 1px;
+             text-align: center;
+             overflow: auto;
+             border: thick solid rgb(1, 1, 48);
+            
+                }
+                div.container3 {
+            max-width:500px;
+            max-height: 60vh;
+             margin: 2px;
+             padding-left: 1em;
+             text-align: center;
+             overflow: auto;
+             border: thick solid rgb(1, 1, 48);
+             background-image: linear-gradient(rgba(255, 255, 255, 0.993), rgba(255, 250, 250, 0.904)), url('static/WODXA.png');
+                    
+        
+                }
+            
+
+                body {
+                    background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 250, 250, 0.959)), url('static/WODXA.png');
+                    
+                    }
+
+
+                    img {
+        height: 70px;
+        width: 90px;
+        position: relative;
+    }
+    .img1 {
+        height: 10px;
+        width: 10px;
+        float: left;
+        right: 20em;
+        top: 20em;
+    }
+
+    .img2 {
+    
+        position: absolute;
+        top: 8px;
+        right: 56px;
+        
+    }
+
+            </style>
+
+
+
+  
+  
+    </head>
+
+
+    <!-- <div class="img1" style="height: 10px; width: 10px;">
+        <img  style="left: 20px;" src='static/sterlingbig.png' alt="">
+
+    </div>
+       -->
+    <div class="img2" style="left: 20px;"style="height: 10px; width: 10px;">
+      
+        <img  style="float: right; height: 50px;" src='static/df.png' alt="">
+    </div>
+    <body>
+        <div id="banner">
+          
+            <div class="container text-center " style="padding-top: 1em;">
+                <h1>Document Intelligence </h1>
+               <br> 
+            </div>
+        </div>
+        <header>
+    
+            
+            
+                    <div class="row" >
+                       
+                        <div class="col-xs-12 ">
+                      
+                            <ul class="nav-inner col-md-12" style="background-color:rgba(4, 3, 31, 0.911); background-size: 20em; font-size: 17px; margin-top: 1em;   justify-content:space-between; padding: 0 4em;">
+            
+                                
+                    <li class="nav-item" style="padding: 1em;">
+                        <a href="{{ url_for ('index') }}" style="color: white;" class="nav-link {% if upload_doc %} active {% endif %}" > Home  </a> 
+                    </li>
+
+
+                                {% if  session["username"]  %}
+                                                   
+                                <li class="nav-item" style="padding: 1em;">
+                                    <a href="{{ url_for ('upload_doc') }}" style="color: white;" class="nav-link {% if upload_doc %} active {% endif %}" > Contract Intelligence   </a> 
+                                </li>
+                               
+                         
+            
+                              <li class="nav-item" style="padding: 1em;">
+                                <a href="{{ url_for ('review') }}" style="color: white;" class="nav-link{% if review %} active {% endif %}" > Reviewed Documents   </a>
+                            </li>
+                            <li class="nav-item" style="padding: 1em;">
+                                <a href="{{ url_for ('search') }}" style="color: white;" class="nav-link {% if search %} active {% endif %}">  Document Search    </a> 
+                            </li>
+                            {% if session["isadmin"] == "True" %}
+                            <li class="nav-item" style="padding: 1em;">
+                                <a href="{{ url_for ('register') }}" style="color: white;" class="nav-link{% if login %} active {% endif %}"> Register User  </a>
+                            </li>
+                            {% endif   %}
+                                {% endif   %}
+            
+                                
+                                {% if not session["username"]  %}
+                            <li class="nav-item" style="padding: 1em;">
+                                <a href="{{ url_for ('login') }}" style="color: white;" class="nav-link{% if login %} active {% endif %}"> Login  </a>
+                            </li>
+            
+                                {% else %}
+            
+                            <li class="nav-item">
+                                <a href="{{ url_for ('logout') }}" style="color: white;" class="nav-link{% if login %} active {% endif %}"> Logout   </a>
+                            </li>
+            
+                            {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            
+            </header>
+
+
+
+
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="container">
+                        <div class="alert alert-{{category}}">
+                            <p>{{ message }}</p>
+                        </div>
+                    </div>
+                   
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+
+
+        {%  if session['username'] %}
+        <div class="container">
+        <span class="user" > <b> Logged in:  {{session['username'] }} ||  Admin User: {{session['isadmin']}}</b></span>
+    </div>
+
+        {%  endif %}
+             
+    
+
+
+    <div class="row">
+        <div class="column left" style="background-color:rgb(255, 254, 254);">
+          <div class ="container2">
+              
+          <u><h5 style="color:rgb(16, 16, 17);"><b>  Extracted Data </b> </h5></u>
+
+     
+
+    <form method="POST" action="/upload1">
+        <div class= "form-group" >
+            <u><h5><b> Please Update any Wrong Value</h5></b></u>
+            <p><b> Leave as default if correct</b></p>
+            <b>File name</b>  <input type ="text" name="filename" value=  '{{ filename}}' style="background-color: rgba(144, 211, 255, 0.678);"> <br> 
+            <b>Contract Owner --- <b>page</b>  {{ resp['fields']["contract owner"]['page']}}</b>  <input type ="text" name="contract_owner" value=  '{{resp['fields']["contract owner"]['text']}}' style="background-color: rgba(144, 211, 255, 0.678);"> <br> 
+            <b>Contract Number --- <b>page</b>  {{ resp['fields']["contract number"]['page']}}</b>  <input type ="text" name="contract_number" value=" {{resp['fields']["contract number"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Counterparty --- <b>page</b>  {{ resp['fields']["counterparty"]['page']}}</b>  <input type ="text" name="counterparty" value="  {{resp['fields']["counterparty"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Entitlement --- <b>page</b>  {{ resp['fields']["entitlement"]['page']}}</b>  <input type ="text" name="entitlement" value=" {{resp['fields']["entitlement"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Status  --- <b>page</b>  {{ resp['fields']["status"]['page']}}</b>  <input type ="text" name="status" value=" {{resp['fields']["status"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Final_price --- <b>page</b>  {{ resp['fields']["final price"]['page']}}</b>  <input type ="text" name="final_price" value=" {{resp['fields']["final price"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Termination Clause --- <b>page</b>  {{ resp['fields']["termination clause"]['page']}}</b>  <input type ="text" name="termination_clause" value="  {{resp['fields']["termination clause"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Expiry Date  --- <b>page</b>  {{ resp['fields']["expiry date"]['page']}}</b>  <input type ="text" name="expiry_date" value=" {{resp['fields']["expiry date"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Signatory  --- <b>page</b>  {{ resp['fields']["signatory"]['page']}}</b>  <input type ="text" name="signatory" value=" {{resp['fields']["signatory"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Role --- <b>page</b>  {{ resp['fields']["role"]['page']}}</b>  <input type ="text" name="role" value=" {{resp['fields']["role"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Date --- <b>page</b>  {{ resp['fields']["date"]['page']}}</b>  <input type ="text" name="date" value=" {{resp['fields']["date"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Representative --- <b>page</b>  {{ resp['fields']["representative"]['page']}}</b>  <input type ="text" name="representative" value=" {{resp['fields']["representative"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+            <b>Date Recieved --- <b>page</b>  {{ resp['fields']["date recieved"]['page']}}</b>  <input type ="text" name="date_recieved" value=" {{resp['fields']["date recieved"]['text']}}" style="background-color: rgb(144, 211, 255, 0.678);"> <br> 
+          
+        </div>
+
+        
+    </div>
+    <div class="container3">
+        <div class= "form-group">
+            <u><h5><b> Additional Comments:</b> </h5></u>
+            <p> <b> Please enter below, any comments you have on the document</b></p>
+            <b>Comment 1</b> <input type ="text" name="comment1" style="background-color: rgb(168, 170, 170);"> 
+            <b>Comment 2</b> <input type ="text" name="comment2" style="background-color: rgb(168, 170, 170);">
+            <b>Comment 3</b> <input type ="text" name="comment3" style="background-color: rgb(168, 170, 170);">
+            <b>Department</b> <input type ="text" name="department" style="background-color: rgb(168, 170, 170);">  
+            <b>Date of review (DD/MM/YY)</b>    <input type ="text" name="date_of_review" style="background-color: rgb(168, 170, 170);">
+        </div>
+
+      
+</div>
+<div class="container col-sm-12 col-xs-12 ">
+<div class=" col-sm-12 col-xs-12 ">
+                 <input  type="submit" value="Upload To Database" class="btn btn-lg btn-block btn-success col-sm-12 col-xs-12" style="border-radius: 50px; background-color: rgb(3, 43, 66); background-color:hover: red;">
+           </div>
+</div>
+</form>
+    
+    <br>
+    <div class="col-sm-7 col-md-7 col-lg-7  text-center" style="left: 60px;">
+
+    
+</div>
+</div>
+
+    <div class="column right" style="background-color:#bbb;">
+
+        <!-- <div class="bottom-left">
+            <button class="btn-floating btn-large waves-effect waves-light red" onclick="goLeft()"><i class="material-icons">chevron_left</i></button>		
+            </div>
+            <div class="bottom-right">
+            <a class="btn-floating btn-large waves-effect waves-light red" onclick="goRight()"><i class="material-icons">chevron_right</i></a>		
+            </div> -->
+            <div id="pdfwindow"></div>
+            <div id="contents" class="hide">{{contents}}</div>
+          </div>
+        </div>
+
+    
+
+    
+    </body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="static/js/materialize.js"></script>
+<script type="text/javascript" src="/static/js/custom.js"></script>
+</html>

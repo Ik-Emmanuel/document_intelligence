@@ -1,0 +1,128 @@
+{%  extends "layout.html" %}
+
+{%  block content  %}
+
+
+
+            
+           <u> <h2 style="padding-left: 1em;"> <b> Documents Reviewed:</b> </h2></u>
+           
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                      
+                        <th scope="col">Title</th>
+                        <th scope="col">Date of Review</th>
+                        <th scope="col">Date of Expiration</th>
+
+                        <th scope="col">Department</th>
+                        {% if session["isadmin"] == "True" %}
+                        <th scope="col">Name of Reviewer</th>
+                        
+
+                        {% endif   %}
+
+
+
+                        <th scope="col">View Results</th>
+                        <th scope="col">View File</th>
+                       
+                    </tr>
+                    </thead>
+                    <tbody>
+     
+                  
+                    <tr>
+                       
+                        <td>Service Level Aggreement</td>
+                        <td>22/03/2020</td>
+                        <td>22/03/2022</td>
+                        <td>Technology</td>
+                        {% if session["isadmin"] == "True" %}
+                        <td>Shola James</td>
+                       
+                        {% endif   %}
+                        
+                        <td>
+                            <form action="" method="POST">
+                                <input type="hidden" name="courseID" value="">
+                                <input type="hidden" name="title" value="">
+                                <input type="hidden" name="term" value="">
+                            <button>View</button>
+                        </form>
+                        </td>
+                        <td>
+                            
+                           <b><a href="https://docintelligencestorage.blob.core.windows.net/docintelligence/cont2.PDF"> File</a> </b> 
+                      
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                       
+                        <td>Memorandum of Understanding</td>
+                        <td>07/03/2021</td>
+                        <td>07/03/2025</td>
+                        <td>Retail Banking</td>
+                        {% if session["isadmin"] == "True" %}
+                        <td>Mary Adams</td>
+                        
+                        {% endif   %}
+                        
+                        
+                        <td>
+                            <form action="" method="POST">
+                                <input type="hidden" name="courseID" value="">
+                                <input type="hidden" name="title" value="">
+                                <input type="hidden" name="term" value="">
+                            <button>View</button>
+                        </form>
+                        </td>
+                        <td>
+                           <b> <a href="https://docintelligencestorage.blob.core.windows.net/docintelligence/cont2.PDF"> File</a></b>
+                        </form>
+                        </td>
+                        
+                    </tr>
+
+                    <tr>
+                      
+                        <td>Letter of Aggrement</td>
+                        <td>07/03/2021</td>
+                        <td>07/03/2023</td>
+                        <td>Service Management</td>
+                        {% if session["isadmin"] == "True" %}
+                        <td>Joy Olu</td>
+                      
+                        {% endif   %}
+                        
+                        
+                        <td>
+                            <form action="" method="POST">
+                                <input type="hidden" name="courseID" value="">
+                                <input type="hidden" name="title" value="">
+                                <input type="hidden" name="term" value="">
+                            <button>View</button>
+                        </form>
+                        </td>
+                        <td>
+                           <b> <a href="https://docintelligencestorage.blob.core.windows.net/docintelligence/cont2.PDF"> File</a></b>
+                        </form>
+                        </td>
+                        
+                    </tr>
+       
+       
+             
+
+                    </tbody>
+                </table>
+        </div>
+            
+            
+
+
+            </div>
+    
+{%  endblock  %}

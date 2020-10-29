@@ -1,0 +1,41 @@
+{%  extends "layout.html"  %}
+
+{%  block content %}
+        
+        <div class="container"> 
+            <div class="row">
+                <div class="col-sm-12 text-center"> <br>
+                {% if search_results %}
+                {% for result in search_results['value'] %} 
+
+
+                <div class="card center">
+                    <h4 style="color:rgb(2, 2, 17); font-size: 150%; border:3px; border-style:solid; border-color:#0f0227;" >The result for <b>"{{search_term}}"</b>  can be found in: <a href="https://azermstorage.blob.core.windows.net/ermbasic/{{result['metadata_storage_name']}}" target = "_blank"><b>{{result['metadata_storage_name']}}</b> </h4>
+                 </a>
+
+
+
+                   <!-- <a href="https://azermstorage.blob.core.windows.net/ermbasic/{{result['metadata_storage_name']}}"> 
+                       <div class="card center">
+                      <h4 style="color:rgb(2, 2, 17); font-size: 150%; border:3px; border-style:solid; border-color:#0f0227;" ><b>"{{search_term}}"</b>  can be found in: <b>{{result['metadata_storage_name']}}</b> </h4> </a> -->
+                      <p><b>Click on the link above to view document</b></p>
+                    </div>
+                    {% for highlight in result['@search.highlights']['translated_text'][:] %}
+
+                    <div class="card center">
+                        {{highlight|safe}}
+                    </div>
+                
+
+                    {%endfor%}
+
+                    {%endfor%}
+                {% else %}
+                    <h4> Sorry {{search_term}} is not contained in any of the document in the selected location. Please confirm the location andtry again</h4>
+               {% endif %}
+
+                      <br> <br> <br>               
+                </div>
+                </div>     
+                </div>             
+ {% endblock %}

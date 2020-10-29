@@ -1,0 +1,62 @@
+<header>
+    
+<div class="container  ">
+
+
+        <div class="row" >
+           
+            <div class="col-xs-12 ">
+          
+                <ul class="nav-inner col-md-12" style="background-color:rgba(4, 3, 31, 0.911); background-size: 20em; font-size: 17px; margin-top: 1em;   justify-content:space-between; padding: 0 4em;">
+
+
+                    <li class="nav-item" style="padding: 1em;">
+                        <a href="{{ url_for ('index') }}" style="color: white;" class="nav-link {% if upload_doc %} active {% endif %}" > Home  </a> 
+                    </li>    
+
+                    {% if  session["username"]  %}
+                                       
+                    <li class="nav-item" style="padding: 1em;">
+                        <a href="{{ url_for ('upload_doc') }}" style="color: white;" class="nav-link {% if upload_doc %} active {% endif %}" > Contract Intelligence   </a> 
+                    </li>        
+
+                  <li class="nav-item" style="padding: 1em;">
+                    <a href="{{ url_for ('review') }}" style="color: white;" class="nav-link{% if review %} active {% endif %}" > Reviewed Documents   </a>
+                </li>`
+            </li>
+            <li class="nav-item" style="padding: 1em;">
+                <a href="{{ url_for ('search') }}" style="color: white;" class="nav-link {% if search %} active {% endif %}">  Document Search    </a> 
+            </li>
+
+                    
+                {% if session["isadmin"] == "True" %}
+                <li class="nav-item" style="padding: 1em;">
+                    <a href="{{ url_for ('register') }}" style="color: white;" class="nav-link{% if login %} active {% endif %}"> Register User  </a>
+                </li>
+                {% endif   %}
+
+
+
+                    {% endif   %}
+
+                    
+                    {% if not session["username"]  %}
+                <li class="nav-item" style="padding: 1em;">
+                    <a href="{{ url_for ('login') }}" style="color: white;" class="nav-link{% if login %} active {% endif %}"> Login  </a>
+                </li>
+                
+                
+                    {% else %}
+
+                <li class="nav-item">
+                    <a href="{{ url_for ('logout') }}" style="color: white;" class="nav-link{% if login %} active {% endif %}"> Logout   </a>
+                </li>
+
+                {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</header>

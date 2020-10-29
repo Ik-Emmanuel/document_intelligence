@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Doc Intelligence</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+                    input[type=text], input[type=password] {
+                width: 50%;
+                padding: 7px;
+                /* margin: 5px 0 22px 0; */
+                display: inline-block;
+                border: none;
+                background: #f1f1f1;
+            }
+
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+            
+                h1 {
+                    color: white;
+                    font-size: 70pt;
+                    font-family: "Tahoma";
+                    text-shadow: 4px 4px 16px black;
+                }
+
+                h3 {
+                    color: white;
+                    margin-top: 0px;
+                    margin-bottom: 48px;
+                    font-family: "Tahoma";
+                    text-shadow: 4px 4px 8px black;
+                }
+
+                .user{
+
+                    float: right; 
+                    position:relative;
+                     font-size: 15px;
+                      right: 6em; 
+                      top: 10%;
+                      color: rgb(2, 3, 48);
+                      
+                }
+
+                body {
+                    background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 250, 250, 0.959)), url('static/WODXA.png');
+                    
+                    }
+
+                    img {
+        height: 50px;
+        width: 90px;
+        position: relative;
+    }
+    .img1 {
+        height: 10px;
+        width: 10px;
+        float: left;
+        right: 20em;
+        top: 20em;
+    }
+
+    .img2 {
+    
+        position: absolute;
+        top: 8px;
+        right: 56px;
+        
+    }
+
+
+            </style>
+
+
+
+  
+  
+    </head>
+    <!-- <div class="img1" style="height: 9px; width: 9px;">
+        <img  style="left: 20px;" src='static/sterlingbig.png' alt="">
+
+    </div> -->
+      
+    <div class="img2" style="left: 20px;"style="height: 10px; width: 10px;">
+      
+        <img  style="float: right; height: 50px;" src='static/df.png' alt="">
+    </div>
+    
+    <body>
+        <div id="banner">
+          
+            <div class="container text-center" style="padding-top: 1em;">
+                <h1>Document Intelligence </h1>
+               <br> 
+            </div>
+        </div>
+
+        {% include  "includes/nav.html"  %}
+
+        {%  if session['username'] %}
+        <div class="container">
+        <span class="user" > <b> Logged in:  {{session['username'] }} </b></span>
+    </div>
+
+        {%  endif %}
+             
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="container">
+                    <div class="alert alert-{{category}}">
+                        <p>{{ message }}</p>
+                    </div>
+                </div>
+               
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+
+        {% block content %} 
+        
+
+        {% endblock %}
+    
+    </body>
+</html>
